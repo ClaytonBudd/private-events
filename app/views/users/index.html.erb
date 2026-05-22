@@ -1,0 +1,22 @@
+<h1> Your Hosted Events <h1>
+  <%if user_signed_in?%>
+  <% @created.each do |created| %>
+    <h3>
+      Event#<%= created.id%>
+      Date: <%= created.date %> 
+    <h3>
+  <%end%>
+  <%end%>
+
+ <h1>Events you are Attending <h1>
+  <%if user_signed_in?%>
+  <% current_user.attended_events.each do |event| %>
+    <h3>
+      Event#<%= event.attended_event.id%>
+      Date: <%= event.attended_event.date %> 
+      Host: <%= event.attended_event.creator.email %>
+    <h3>
+  <%end%>
+  <%end%>
+
+ 

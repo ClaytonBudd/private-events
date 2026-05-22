@@ -1,0 +1,27 @@
+<%= current_user.email%>
+<%= button_to "Sign Out", destroy_user_session_path, :method => "delete", data:{turbo: "false" }  %>
+
+<h1>Past Events</h1>
+
+<% current_user.attended_events.each do | events | %>
+<ul>
+  <% if events.attended_event.date < Date.today %>
+    <%= events.attended_event.date %>
+    <%= events.attended_event.location %>
+    <%= events.attended_event.creator.email %>
+</ul>
+<%end%>
+<%end%>
+
+
+<h1>Future Events</h1>
+<% current_user.attended_events.each do | events | %>
+<ul>
+  <% if events.attended_event.date > Date.today %>
+  <%= events.attended_event.date %>
+  <%= events.attended_event.location %>
+  <%= events.attended_event.creator.email %>
+</ul>
+<%end%>
+<%end%>
+

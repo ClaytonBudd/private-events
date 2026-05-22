@@ -1,0 +1,20 @@
+<h1> All Events <h1>
+  <h1>Past Events</h1>
+  <% @event.past_event.each do |event| %>
+    <h3>
+      Event#<%= event.id%>
+      | Date: <%= event.date %> 
+      | Host: <%= event.creator.email %>
+      | <%= link_to "view this event", event_path(event), method: :get %>
+    <h3>
+  <%end%>
+
+<h1>Upcoming Events</h1>
+    <% @event.upcoming_event.each do |event| %>
+    <h3>
+      Event#<%= event.id%>
+      | Date: <%= event.date %> 
+      | Host: <%= event.creator.email %>
+      | <%= link_to "view this event", event_path(event), method: :get %>
+    <h3>
+  <%end%>

@@ -1,0 +1,13 @@
+<h1>Event</h1>
+
+    <h3>
+      Event#<%= @event.id%>
+      | Date: <%= @event.date %> 
+      | Host: <%= @event.creator.email %>
+      <% @event.attendees.each do | attendee | %>
+      <ul>
+        <%= attendee.email %>
+      </ul>
+      <%end%>
+      | <%= button_to "attend this event", attended_events_path(:attended_events => {attendee: current_user.id, attended_event: @event.id} ), method: :post %>
+    <h3>
