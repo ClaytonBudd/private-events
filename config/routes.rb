@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "invites/new"
+  get "invites/create"
   devise_for :users
   get "events/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -17,4 +19,5 @@ Rails.application.routes.draw do
   resources :events
   resources :attended_events
   resources :users
+  resources :invites
 end

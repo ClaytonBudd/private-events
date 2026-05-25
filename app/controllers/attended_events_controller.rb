@@ -12,7 +12,6 @@ class AttendedEventsController < ApplicationController
     if @attended_event.save
       redirect_to events_path
     else
-    @attended_event.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
